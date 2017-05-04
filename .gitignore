@@ -1,0 +1,6 @@
+.env
+node_modules/
+bower_components/
+package.json
+webpack.config.js
+webpack.mix.js
