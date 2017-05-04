@@ -1,0 +1,3 @@
+fields:
+  hide_nav:
+    type: toggle
