@@ -1,6 +1,6 @@
 # Logbook
 
-## View log files in the CP
+**View log files in the CP**
 
 Viewing log files directly on the server can be a bit of a hassle... First you have to `ssh` in, `cd` to the project's logs directory, and finally open each one only to see the biggest mangle of info logs and errors logs with stack traces.
 
