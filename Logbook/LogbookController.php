@@ -30,7 +30,7 @@ class LogbookController extends Controller
         }
 
         if (request()->has('delall')) {
-            foreach ($logviewer::getFiles(true) as $file) {
+            foreach ($logviewer->getFiles(true) as $file) {
                 app('files')->delete($logviewer->pathToLogFile($file));
             }
 
