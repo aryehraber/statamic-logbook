@@ -42,6 +42,7 @@ class LogbookController extends Controller
             'files' => $logviewer->getFiles(true),
             'current_file' => $logviewer->getFileName(),
             'action_path' => strtolower('/'.CP_ROUTE.'/addons/'.$this->getAddonName()),
+            'title' => 'Logbook',
         ];
 
         return $this->view('index', $data);
