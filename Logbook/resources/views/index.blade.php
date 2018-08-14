@@ -3,10 +3,8 @@
 @section('content')
 <div id="logbook">
 
-    <div class="card sticky flat-bottom">
-        <div class="head">
-            <h1>Logbook</h1>
-        </div>
+    <div class="flexy mb-1">
+        <h1 class="fill">Logbook</h1>
     </div>
 
     @if (count($files))
