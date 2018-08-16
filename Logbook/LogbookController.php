@@ -2,6 +2,7 @@
 
 namespace Statamic\Addons\Logbook;
 
+use Statamic\API\User;
 use Statamic\Extend\Controller;
 use Rap2hpoutre\LaravelLogViewer\LaravelLogViewer;
 
@@ -9,8 +10,11 @@ class LogbookController extends Controller
 {
     public function index()
     {
-        if (! auth()->check()) {
-            return redirect('/');
+        $user = User::getCurrent();
+        $super = $user && $user->isSuper();
+        
+        if (!$super) {
+            return redirect('/cp');
         }
 
         $logviewer = new LaravelLogViewer;
