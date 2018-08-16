@@ -2,7 +2,6 @@
 
 namespace Statamic\Addons\Logbook;
 
-use Statamic\API\User;
 use Statamic\Extend\Controller;
 use Rap2hpoutre\LaravelLogViewer\LaravelLogViewer;
 
@@ -10,10 +9,7 @@ class LogbookController extends Controller
 {
     public function index()
     {
-        $user = User::getCurrent();
-        $super = $user && $user->isSuper();
-        
-        if (!$super) {
+        if (! $this->isSuper()) {
             return redirect('/cp');
         }
 
@@ -42,13 +38,17 @@ class LogbookController extends Controller
         }
 
         $data = [
+            'title' => 'Logbook',
             'logs' => $logviewer->all(),
             'files' => $logviewer->getFiles(true),
             'current_file' => $logviewer->getFileName(),
             'action_path' => strtolower('/'.CP_ROUTE.'/addons/'.$this->getAddonName()),
-            'title' => 'Logbook',
         ];
 
         return $this->view('index', $data);
+    }
+
+    private function isSuper() {
+        return ($user = auth()->user()) && $user->isSuper();
     }
 }
