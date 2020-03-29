@@ -1,0 +1,14 @@
+{
+    "name": "aryehraber/statamic-logbook",
+    "description": "Manage and view log files in the CP.",
+    "homepage": "https://github.com/aryehraber/statamic-logbook",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Aryeh Raber",
+            "email": "aryeh.raber@gmail.com",
+            "homepage": "https://aryeh.dev",
+            "role": "Developer"
+        }
+    ]
+}
