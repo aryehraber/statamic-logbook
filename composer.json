@@ -1,8 +1,23 @@
 {
     "name": "aryehraber/statamic-logbook",
+    "type": "statamic-addon",
     "description": "Manage and view log files in the CP.",
+    "keywords": [
+        "statamic",
+        "logbook",
+        "logs"
+    ],
     "homepage": "https://github.com/aryehraber/statamic-logbook",
     "license": "MIT",
+    "require": {
+        "rap2hpoutre/laravel-log-viewer": "^1.4.0",
+        "statamic/cms": "3.0.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "AryehRaber\\Logbook\\": "src"
+        }
+    },
     "authors": [
         {
             "name": "Aryeh Raber",
@@ -10,5 +25,19 @@
             "homepage": "https://aryeh.dev",
             "role": "Developer"
         }
-    ]
+    ],
+    "extra": {
+        "statamic": {
+            "name": "Logbook",
+            "description": "Manage and view log files in the CP.",
+            "version": "2.0.0"
+        },
+        "laravel": {
+            "providers": [
+                "AryehRaber\\Logbook\\LogbookServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }

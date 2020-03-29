@@ -1,4 +1,0 @@
-routes:
-  /:
-    as: logs
-    uses: index
