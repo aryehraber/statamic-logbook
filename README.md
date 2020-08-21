@@ -14,7 +14,7 @@ You can view a full stack trace by clicking on it.
 Install the addon via composer:
 
 ```
-composer require aryehraber/statamic-logbook:dev-statamic-3
+composer require aryehraber/statamic-logbook
 ```
 
 Publish the utility assets:
