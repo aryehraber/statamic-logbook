@@ -30,7 +30,7 @@
         "statamic": {
             "name": "Logbook",
             "description": "Manage and view log files in the CP.",
-            "version": "2.0.1"
+            "version": "2.0.2"
         },
         "laravel": {
             "providers": [
