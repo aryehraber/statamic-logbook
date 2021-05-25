@@ -63,30 +63,32 @@
         </div>
 
         <div class="card p-0">
-            <table class="data-table">
-                <thead class="pb-1">
-                    <th>{{ __('Level') }}</th>
-                    <th>{{ __('Context') }}</th>
-                    <th>{{ __('Date') }}</th>
-                    <th>{{ __('Content') }}</th>
-                </thead>
-                <tbody>
-                    @foreach ($logs as $key => $log)
-                        <tr @if($log['stack']) style="cursor: zoom-in;" data-expandable @endif>
-                            <td style="min-width: 120px; vertical-align: top;">{{ $log['level'] }}</td>
-                            <td style="min-width: 120px; vertical-align: top;">{{ $log['context'] }}</td>
-                            <td style="min-width: 200px; vertical-align: top;">{{ $log['date'] }}</td>
-                            <td class="w-full font-mono text-xs">
-                                {{ $log['text'] }}
+            <div class="w-full overflow-auto">
+                <table class="data-table">
+                    <thead class="pb-1">
+                        <th>{{ __('Level') }}</th>
+                        <th>{{ __('Context') }}</th>
+                        <th>{{ __('Date') }}</th>
+                        <th>{{ __('Content') }}</th>
+                    </thead>
+                    <tbody>
+                        @foreach ($logs as $key => $log)
+                            <tr @if($log['stack']) style="cursor: zoom-in;" data-expandable @endif>
+                                <td style="min-width: 120px; vertical-align: top;">{{ $log['level'] }}</td>
+                                <td style="min-width: 120px; vertical-align: top;">{{ $log['context'] }}</td>
+                                <td style="min-width: 200px; vertical-align: top;">{{ $log['date'] }}</td>
+                                <td class="w-full font-mono text-xs">
+                                    {{ $log['text'] }}
 
-                                @if($log['in_file'])) <br>{{ $log['in_file'] }} @endif
+                                    @if($log['in_file'])) <br>{{ $log['in_file'] }} @endif
 
-                                @if($log['stack']) <div class="hidden whitespace-pre-wrap" data-stack>{{ trim($log['stack']) }}</div> @endif
-                            </td>
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table>
+                                    @if($log['stack']) <div class="hidden whitespace-pre-wrap" data-stack>{{ trim($log['stack']) }}</div> @endif
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
         </div>
     @else
         <p>No log files found.</p>
