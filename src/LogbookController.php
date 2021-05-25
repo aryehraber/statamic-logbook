@@ -19,7 +19,7 @@ class LogbookController extends Controller
         }
 
         return view('logbook::show', [
-            'logs' => $logviewer->all(),
+            'logs' => $this->sanitize($logviewer->all()),
             'files' => $logviewer->getFiles(true),
             'currentFile' => $logviewer->getFileName(),
         ]);
@@ -42,5 +42,12 @@ class LogbookController extends Controller
         app('files')->delete($logviewer->pathToLogFile(urldecode($file)));
 
         return redirect(cp_route('utilities.logbook.show'))->with('success', 'Log file deleted.');
+    }
+
+    protected function sanitize(array $log)
+    {
+        return array_map(function ($val) {
+            return str_replace(['{{', '}}'], ['&#123;&#123;', '&#125;&#125;'], $val);
+        }, $log);
     }
 }
