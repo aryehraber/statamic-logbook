@@ -1,8 +1,10 @@
 .env
 node_modules/
 bower_components/
+vendor/
 package.json
 mix-manifest.json
 webpack.config.js
 webpack.mix.js
 yarn.lock
+composer.lock
