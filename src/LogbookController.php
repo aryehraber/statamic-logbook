@@ -19,7 +19,7 @@ class LogbookController extends Controller
         }
 
         return view('logbook::show', [
-            'logs' => $this->sanitize($logviewer->all()),
+            'logs' => $this->sanitize($logviewer->all() ?? []),
             'files' => $logviewer->getFiles(true),
             'currentFile' => $logviewer->getFileName(),
         ]);
