@@ -17,10 +17,4 @@ Install the addon via composer:
 composer require aryehraber/statamic-logbook
 ```
 
-Publish the utility assets:
-
-```
-php artisan vendor:publish --provider="AryehRaber\Logbook\LogbookServiceProvider"
-```
-
 That's it! Logbook can now be accessed via the CP under `Tools > Utilities`.
