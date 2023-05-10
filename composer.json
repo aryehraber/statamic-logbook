@@ -10,7 +10,7 @@
     "homepage": "https://github.com/aryehraber/statamic-logbook",
     "license": "MIT",
     "require": {
-        "rap2hpoutre/laravel-log-viewer": "^2.2.0",
+        "rap2hpoutre/laravel-log-viewer": "^2.3.0",
         "statamic/cms": "^4.0"
     },
     "autoload": {
