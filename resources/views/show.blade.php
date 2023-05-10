@@ -16,14 +16,16 @@
         <div class="card mb-2">
             <div class="flex items-center justify-between">
                 <form class="flex" method="GET" action="{{ cp_route('utilities.logbook.show') }}">
-                    <div class="select-input-container relative">
-                        <select class="pr-4" name="log">
+                    <div class="select-input-container">
+                        <select class="select-input" name="log">
                             @foreach($files as $file)
                                 <option value="{{ urlencode($file) }}" @if($file === $currentFile) selected @endif>{{ $file }}</option>
                             @endforeach
                         </select>
 
-                        <svg-icon name="chevron-down-xs" class="absolute inset-y-0 right-0 w-2 h-full mr-1.5 pointer-events-none"></svg-icon>
+                        <div class="select-input-toggle">
+                            <svg-icon name="micro/chevron-down-xs" class="w-2"></svg-icon>
+                        </div>
                     </div>
                 </form>
 
@@ -42,10 +44,10 @@
                             @method('delete')
 
                             @if(count($files) > 1)
-                                <dropdown-list class="inline-block ml-1">
+                                <dropdown-list class="inline-block ml-2">
                                     <template #trigger>
-                                        <button class="btn-danger flex items-center pr-2" type="button">
-                                            {{ __('Delete Log') }} <svg-icon name="chevron-down-xs" class="w-2 ml-1"></svg-icon>
+                                        <button class="btn-danger flex items-center pr-3 hover:text-white" type="button">
+                                            {{ __('Delete Log') }} <svg-icon name="micro/chevron-down-xs" class="w-2 ml-2"></svg-icon>
                                         </button>
                                     </template>
 
@@ -54,7 +56,7 @@
                                     <button name="log" value="all" data-delete>{{ __('Delete All Logs') }}</button>
                                 </dropdown-list>
                             @else
-                                <button class="btn-danger ml-1" name="log" value="{{ urlencode($currentFile) }}" data-delete>{{ __('Delete Log') }}</button>
+                                <button class="btn-danger ml-2" name="log" value="{{ urlencode($currentFile) }}" data-delete>{{ __('Delete Log') }}</button>
                             @endif
                         </form>
                     </div>
