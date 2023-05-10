@@ -43,21 +43,7 @@
                             @csrf
                             @method('delete')
 
-                            @if(count($files) > 1)
-                                <dropdown-list class="inline-block ml-2">
-                                    <template #trigger>
-                                        <button class="btn-danger flex items-center pr-3 hover:text-white" type="button">
-                                            {{ __('Delete Log') }} <svg-icon name="micro/chevron-down-xs" class="w-2 ml-2"></svg-icon>
-                                        </button>
-                                    </template>
-
-                                    <button name="log" value="{{ urlencode($currentFile) }}" data-delete>{{ __('Delete Current Log') }}</button>
-
-                                    <button name="log" value="all" data-delete>{{ __('Delete All Logs') }}</button>
-                                </dropdown-list>
-                            @else
-                                <button class="btn-danger ml-2" name="log" value="{{ urlencode($currentFile) }}" data-delete>{{ __('Delete Log') }}</button>
-                            @endif
+                            <button class="btn-danger ml-2" name="log" value="{{ urlencode($currentFile) }}" data-delete>{{ __('Delete Log') }}</button>
                         </form>
                     </div>
                 @endif
