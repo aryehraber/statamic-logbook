@@ -10,8 +10,8 @@
     "homepage": "https://github.com/aryehraber/statamic-logbook",
     "license": "MIT",
     "require": {
-        "rap2hpoutre/laravel-log-viewer": "^2.2.0",
-        "statamic/cms": "^3.3"
+        "rap2hpoutre/laravel-log-viewer": "^2.3.0",
+        "statamic/cms": "^4.0"
     },
     "autoload": {
         "psr-4": {
@@ -30,7 +30,7 @@
         "statamic": {
             "name": "Logbook",
             "description": "Manage and view log files in the CP.",
-            "version": "2.2.0"
+            "version": "3.0.0"
         },
         "laravel": {
             "providers": [
@@ -39,5 +39,10 @@
         }
     },
     "minimum-stability": "dev",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "config": {
+        "allow-plugins": {
+            "pixelfear/composer-dist-plugin": true
+        }
+    }
 }
