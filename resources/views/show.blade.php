@@ -19,7 +19,7 @@
                     <div class="select-input-container">
                         <select class="select-input" name="log">
                             @foreach($files as $file)
-                                <option value="{{ urlencode($file) }}" @if($file === $currentFile) selected @endif>{{ $file }}</option>
+                                <option value="{{ \Illuminate\Support\Facades\Crypt::encrypt($file) }}" @if($file === $currentFile) selected @endif>{{ $file }}</option>
                             @endforeach
                         </select>
 
@@ -35,7 +35,7 @@
                             <form class="flex" method="GET" action="{{ cp_route('utilities.logbook.show') }}">
                                 <input type="hidden" name="download">
 
-                                <button class="btn-primary" name="log" value="{{ urlencode($currentFile) }}">{{ __('Download Log') }}</button>
+                                <button class="btn-primary" name="log" value="{{ \Illuminate\Support\Facades\Crypt::encrypt($currentFile) }}">{{ __('Download Log') }}</button>
                             </form>
                         @endif
 
@@ -43,7 +43,7 @@
                             @csrf
                             @method('delete')
 
-                            <button class="btn-danger ml-2" name="log" value="{{ urlencode($currentFile) }}" data-delete>{{ __('Delete Log') }}</button>
+                            <button class="btn-danger ml-2" name="log" value="{{ \Illuminate\Support\Facades\Crypt::encrypt($currentFile) }}" data-delete>{{ __('Delete Log') }}</button>
                         </form>
                     </div>
                 @endif

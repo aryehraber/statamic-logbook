@@ -3,6 +3,7 @@
 namespace AryehRaber\Logbook;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\File;
 use Rap2hpoutre\LaravelLogViewer\LaravelLogViewer;
 use Statamic\Http\Controllers\Controller;
@@ -11,12 +12,12 @@ class LogbookController extends Controller
 {
     public function show(Request $request, LaravelLogViewer $logviewer)
     {
-        if ($file = $request->log) {
-            $logviewer->setFile(urldecode($file));
+        if ($file = $request->input('log')) {
+            $logviewer->setFile(Crypt::decrypt($file));
         }
 
         if ($request->has('download')) {
-            return response()->download($logviewer->pathToLogFile(urldecode($file)));
+            return response()->download($logviewer->pathToLogFile(Crypt::decrypt($file)));
         }
 
         return view('logbook::show', [
@@ -32,7 +33,7 @@ class LogbookController extends Controller
             return redirect(cp_route('utilities.logbook.show'));
         }
 
-        File::delete($logviewer->pathToLogFile(urldecode($file)));
+        File::delete($logviewer->pathToLogFile(Crypt::decrypt($file)));
 
         return redirect(cp_route('utilities.logbook.show'))->with('success', 'Log file deleted.');
     }
