@@ -7,7 +7,7 @@ Viewing log files directly on the server can be a bit of a hassle... First you h
 Logbook solves this by displaying each log file in a table and collapsing the stack traces to keep things nice and tidy.
 You can view a full stack trace by clicking on it.
 
-<img src="https://user-images.githubusercontent.com/5065331/77851587-4012bb00-71da-11ea-994a-4f6b7166fe19.png" alt="Logbook" width="700">
+<img src="https://github.com/user-attachments/assets/10d4ed26-1218-46f0-92ef-c01114dd8ed0" alt="Logbook" width="700">
 
 ## Installation
 
