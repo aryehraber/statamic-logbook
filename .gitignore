@@ -8,3 +8,9 @@ webpack.config.js
 webpack.mix.js
 yarn.lock
 composer.lock
+/.fleet
+/.idea
+/.nova
+/.phpunit.cache
+/.vscode
+/.zed

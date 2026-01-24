@@ -19,7 +19,7 @@ class LogbookServiceProvider extends AddonServiceProvider
         Utility::extend(function () {
             Utility::register('logbook')
                 ->title(__('Logbook'))
-                ->icon('book-pages')
+                ->icon('book-next-page')
                 ->description(__('Manage and view log files.'))
                 ->routes(function (Router $router) {
                     $router->get('/', [LogbookController::class, 'show'])->name('show');

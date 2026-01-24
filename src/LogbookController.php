@@ -22,8 +22,16 @@ class LogbookController extends Controller
 
         return view('logbook::show', [
             'logs' => $this->sanitize($logviewer->all() ?? []),
-            'files' => $logviewer->getFiles(true),
-            'currentFile' => $logviewer->getFileName(),
+            'files' => collect($logviewer->getFiles(true))->map(function ($file) {
+                    return [
+                        'label' => $file,
+                        'value' => \Illuminate\Support\Facades\Crypt::encrypt($file)
+                    ];
+                })->all(),
+            'currentFile' => [
+                'key' => \Illuminate\Support\Facades\Crypt::encrypt($logviewer->getFileName()),
+                'label' => $logviewer->getFileName()
+            ],
         ]);
     }
 

@@ -1,12 +1,3 @@
-// Submit form on select change
-const setupSelectListenter = () => {
-  const select = document.querySelector('select[name=log]')
-
-  if (select) {
-    select.addEventListener('change', () => select.form.submit())
-  }
-}
-
 // Confirm deletion of logs
 const setupDeleteListeners = () => {
   const deleteButtons = Array.from(document.querySelectorAll('[data-delete]'))
@@ -46,7 +37,6 @@ const setupStacktraceListeners = () => {
 }
 
 const init = () => {
-  setupSelectListenter()
   setupDeleteListeners()
   setupStacktraceListeners()
 }
